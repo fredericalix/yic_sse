@@ -52,6 +52,11 @@ func main() {
 	// init http server
 	e := echo.New()
 	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete},
+	}))
 	e.Logger.SetLevel(echolog.INFO)
 
 	a := e.Group("/sse")
