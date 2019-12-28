@@ -14,6 +14,7 @@ import (
 
 	_ "net/http/pprof"
 
+	auth "github.com/fredericalix/yic_auth"
 	"github.com/gofrs/uuid"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
